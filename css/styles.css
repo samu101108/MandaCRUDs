@@ -1,0 +1,23 @@
+
+.login-box{
+    width: 300px;
+    position: relative;
+    margin: auto;
+    top: 100px;
+}
+
+fieldset{
+ background-color: #d8bd8f;
+ border-radius: 10px;
+}   
+
+.login-box input{
+    /*display: block;*/
+    width: 300px;
+    padding: 10px;
+    margin: 5px 5px;
+}
+
+.login-box label{
+    padding: 5px;
+}

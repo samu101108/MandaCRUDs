@@ -1,69 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/styles2.css" rel="stylesheet">
+        <title>Cadastro de usuários</title>
+<meta charset="UTF-8">
+<meta name="author" content="Samuel Barbosa">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <title>Cadastro de usuários</title>
     </head>
     <body>
 
-<div class"container-fluid">
+<div class="container">
+    <header>
+        <div class="row">
+            <div class="col- text-center">
+                <h1>Cadastro de usuários</h1>
+                <br>
+            </div>
+        </div>
+    </header>
+
     <div class="row">
         <div class="col-md-2">
             <ul class="nav">
-            <li>
-                <a href="cadastro.html">Usuários</a>
-            </li>
-            <li>
-                <a href="produtos.html">Produtos</a>
-            </li>
-            <li>
-                <a href="fornecedor.html">Fornecedores</a>
-            </li>
-        </ul>    
-             </div>
+                <li><a href="cadastro.html">Usuários</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="fornecedor.html">Fornecedores</a></li>
+            </ul>
+        </div>
+
         <div class="col-md-8">
-            <div>
-            <form>
-                <fieldset>
-                    <h2>Cadastro de usuários</h2>
-                <label for="">Nome</label><br>
-                <input type="text" name="" value="" placeholder="Digite seu nome"><br>
-                <label for="">E-mail</label><br>
-                <input type="text" name="" value="" placeholder="Digite seu e-mail"><br>
-                <label for="">Login</label><br>
-                <input type="text" name="" value="" placeholder="Digite seu login"><br>
-                <label for="">Senha</label><br>
-                <input type="password" name="" value="" placeholder="Digite sua senha"><br>
-                <input class="btn" type="submit" name="" value="Cadastrar">
-                </fieldset>
-            </form>    
-            </div>
-            
+            <form class="form-horizontal">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            <label for="">Nome</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" name="" value="" placeholder="Digite seu nome">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            <label for="">E-mail</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" name="" value="" placeholder="Digite seu e-mail">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-2 ">
+                            <label for="">Login</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" name="" value="" placeholder="Digite seu login">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-2 ">
+                            <label for="">Senha</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input class="form-control" type="password" name="" value="" placeholder="Digite sua senha">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            <p></p>
+                        </div>
+                        <div class="col-md-10">
+                            <input  class="btn btn-default" type="submit" name="" value="Cadastrar">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
             <hr>
-<table class="table">
-    <form>
-        <input type="search" name="" value="" placeholder="buscar por..."><button type="button">Buscar</button><br>
-    </form>
-    <tr><th>Código</th><th>Nome</th><th>E-mail</th><th>Login</th><th>Ações</th></tr>
-    <tr><td>001</td><td>Luciano</td><td>luciano@fatec.br</td><td>lucianofatec</td>
-    <td><button type="button">edit</button>
-    <button type="button">del</button>
-    </td>
-    </tr>
-</table>
 
-             </div>
+            <div class="table-responsive">
+            <table class="table table-hover">
+                <form class="form-vertical">
+                    <div class="form-group">
+                        <input class="form-control" type="search" name="" value="" placeholder="buscar por..."><button type="button">Buscar</button>
+                    </div>
+                </form>
+                <tr><th>Código</th><th>Nome</th><th>E-mail</th><th>Login</th><th>Ações</th></tr>
+                <tr><td>001</td><td>Luciano</td><td>luciano@fatec.br</td><td>lucianofatec</td><td><button type="button">edit</button><button type="button">del</button></td></tr>
+                <tr><td>002</td><td>Hanter</td><td>hanter@fatec.br</td><td>hanterfatec</td><td><button type="button">edit</button><button type="button">del</button></td></tr>
+                <tr><td>003</td><td>Paulo</td><td>paulo@fatec.br</td><td>paulofatec</td><td><button type="button">edit</button><button type="button">del</button></td></tr>
+            </table>
+            </div>
+<br>
+<br>
+<br>
+
+</div><!--  end second col -->
+</div><!--  end row -->
+<footer>
+    <div class="row">
+        <div class="col- text-right">
+            <a href="https://github.com/samu101108/">By Samuel Barbosa</a> |
+            <a href="https://github.com/samu101108/MandaCRUDs">See project</a>
+        </div>
+    <br>
     </div>
-</div>
+</footer>
+</div><!--  end container -->
 
 
 
 
-        
 
-    
-    </body>
+
+</body>
 </html>

@@ -1,20 +1,34 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
     <head>
+ <meta charset="UTF-8">
+ <meta name="author" content="Samuel Barbosa">
         <link rel="stylesheet" href="css/styles.css">
-        <title>Login</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <title>Entrar no sistema</title>
     </head>
 <body>
-    <div class="login-box">
-    <fieldset>
-        <form method="GET" id="login">
-            <label for="login">Login</label><br>
-            <input type="text" name="" value="" placeholder="Nome"><br>
-            <label for="password">Senha</label><br>
-            <input type="text" name="" value="" placeholder="Senha"><br>
-            <input class="btn" type="submit" name="" value="Login">
-        </form>
-    </fieldset>    
-    </div>
-    
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-xs-10">
+<form class="form-horizontal" action="cadastro.html" method="get">
+        <div class="form-group">
+                <label class="control-label" for="login">Login</label>
+                <input class="form-control" type="text" name="" value="" placeholder="Nome de usuário" required="true">
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="password">Senha</label>
+            <input class="form-control" type="text" name="" value="" placeholder="Senha" required="true">
+        </div>
+
+        <div class="form-group">
+            <input class="btn btn-default" type="submit" value="Entrar">
+        </div>
+</form>
+</div>
+</div>
+</div>
+
 </body>
 </html>

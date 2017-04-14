@@ -3,6 +3,10 @@
     <head>
         <title>Cadastro de usuários</title>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta name="author" content="Samuel Barbosa">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <title>Cadastro de usuários</title>
@@ -80,13 +84,17 @@
 
             <hr>
 
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="">Procurar</label>
+                    <input class="form-control" type="search" name="" value="" placeholder="buscar por...">
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </form>
+            <br>
+
             <div class="table-responsive">
             <table class="table table-hover">
-                <form class="form-vertical">
-                    <div class="form-group">
-                        <input class="form-control" type="search" name="" value="" placeholder="buscar por..."><button type="button">Buscar</button>
-                    </div>
-                </form>
                 <tr><th>Código</th><th>Nome</th><th>E-mail</th><th>Login</th><th>Ações</th></tr>
                 <tr><td>001</td><td>Luciano</td><td>luciano@fatec.br</td><td>lucianofatec</td><td><button type="button">edit</button><button type="button">del</button></td></tr>
                 <tr><td>002</td><td>Hanter</td><td>hanter@fatec.br</td><td>hanterfatec</td><td><button type="button">edit</button><button type="button">del</button></td></tr>

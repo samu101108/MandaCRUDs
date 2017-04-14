@@ -1,6 +1,14 @@
-
+/*
 .login-box{
     width: 60%;
     margin: auto;
     top: 100px;
+}*/
+.navbar-inverse .navbar-toggle {
+    border-color: #9d9d9d;
+    color: #9d9d9d;
+}
+
+.navbar-inverse .navbar-toggle:hover{
+    color: #fff;
 }

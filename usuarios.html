@@ -48,7 +48,7 @@
             <label for="nome">Nome</label>
           </div>
           <div class="col-md-10">
-            <input id="nome" class="form-control" type="text" name="nome" value="" placeholder="Digite seu nome">
+            <input id="nome" class="form-control" ng-model="usuario.nome" placeholder="Digite seu nome">
           </div>
         </div>
 
@@ -57,7 +57,7 @@
             <label for="mail">E-mail</label>
           </div>
           <div class="col-md-10">
-            <input id="mail" class="form-control" type="text" name="email" value="" placeholder="Digite seu e-mail">
+            <input id="mail" class="form-control"  ng-model="usuario.email" placeholder="Digite seu e-mail">
           </div>
         </div>
 
@@ -155,5 +155,8 @@
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <!-- Font Awesome -->
 <script src="https://use.fontawesome.com/b5d24ce853.js"></script>
+<script src="bower_components/angular/angular.min.js">
+
+</script>
 </body>
 </html>

@@ -47,7 +47,9 @@
             <label for="nome">Nome</label>
           </div>
           <div class="col-md-10">
-            <input id="nome" class="form-control" ng-model="usuario.nome" placeholder="Digite seu nome">
+            <input
+            ng-model="nome"
+            id="nome" class="form-control" ng-model="usuario.nome" placeholder="Digite seu nome">
           </div>
         </div>
 
@@ -56,7 +58,9 @@
             <label for="mail">E-mail</label>
           </div>
           <div class="col-md-10">
-            <input id="mail" class="form-control"  ng-model="usuario.email" placeholder="Digite seu e-mail">
+            <input
+            ng-model="email"
+            id="mail" class="form-control"  ng-model="usuario.email" placeholder="Digite seu e-mail">
           </div>
         </div>
 
@@ -65,7 +69,9 @@
             <label for="login">Login</label>
           </div>
           <div class="col-md-10">
-            <input id="login" class="form-control" type="text" name="login" value="" placeholder="Digite seu login">
+            <input
+            ng-model="login"
+            id="login" class="form-control" type="text" name="login" value="" placeholder="Digite seu login">
           </div>
         </div>
 
@@ -74,7 +80,9 @@
             <label for="senha">Senha</label>
           </div>
           <div class="col-md-10">
-            <input id="senha" class="form-control" type="password" name="senha" value="" placeholder="Digite sua senha">
+            <input
+            ng-model="senha"
+            id="senha" class="form-control" type="password" name="senha" value="" placeholder="Digite sua senha">
           </div>
         </div>
 
@@ -83,7 +91,14 @@
             <p></p>
           </div>
           <div class="col-md-10">
-            <input  class="btn btn-default" type="submit" name="buttonCadastrar" value="Cadastrar">
+            <input
+            ng-click="edit()"
+            class="btn btn-default" type="submit"
+            name="buttonSalvar" value="Salvar">
+            <input
+            ng-click="add()"
+            class="btn btn-default" type="submit"
+            name="buttonCadastrar" value="Cadastrar">
           </div>
         </div>
       </div>
@@ -119,8 +134,8 @@
           <td>{{product.login}}</td>
           <td>
             <!-- <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a> -->
-            <a href="#" ng-click="selectEdit(product.id)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
-            <a href="#" ng-click="del(product.id)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
+            <a href="#" ng-click="selectEdit(product.codigo)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
+            <a href="#" ng-click="del(product.codigo)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
           </td>
         </tr>
 
@@ -165,6 +180,27 @@
   		{codigo:'003', nome:'Paulo',	 email: 'paulo@fatec.br',		    login:'paulofatec'},
   		{codigo:'004', nome:'Samuel',  email: 'samu101108@gmail.com', login: 'samu101108'}
     ];
+//Adicionar registro à tabela
+    $scope.add = function(){
+      $scope.listProducts.push(
+  {
+    codigo:$scope.codigo, nome:$scope.nome, email:$scope.email, login:$scope.login
+  });
+    $scope.codigo = '';
+    $scope.nome = '';
+    $scope.email = '';
+    $scope.login = '';
+    };
+//Editar linha de tabela
+    $scope.selectEdit = function(codigo){
+      var index = getSelectedIndex(codigo); <!--Essa linha pega a função definida abaixo-->
+      var product = $scope.listProducts[index];
+      $scope.codigo = product.codigo;
+      $scope.nome = product.nome;
+      $scope.email = product.email;
+      $scope.login = product.login;
+    };
+
 //Deletar linha de tabela
     $scope.del = function(codigo){
       var result = confirm('Tem certeza?');

@@ -1,0 +1,28 @@
+{
+	"fornecedor": [
+    {
+			"Código": "001",
+			"Fornecedor": "JJ Alimentos",
+			"Endereço": "Rua Rio Chuí, 25",
+			"Razão Social": "João José Alimentos LTDA",
+			"CNPJ": "99.999.999/9999-99",
+      "Telefone": "(81)3333-4444"
+		},
+    {
+			"Código": "001",
+			"Fornecedor": "FJ Alimentos",
+			"Endereço": "Rua Rio Prado, 521",
+			"Razão Social": "Fernando Jaime Alimentos LTDA",
+			"CNPJ": "99.999.999/9999-99",
+      "Telefone": "(81)3333-4455"
+		},
+    {
+			"Código": "001",
+			"Fornecedor": "MALA Alimentos",
+			"Endereço": "Rua Rio Chuí, 25",
+			"Razão Social": "Maria Lúcia Andrade Alimentos LTDA",
+			"CNPJ": "99.999.999/9999-99",
+      "Telefone": "(81)3333-6698"
+		}
+	]
+}

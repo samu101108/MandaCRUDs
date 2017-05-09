@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" ng-app="myapp">
     <head>
         <title>Cadastro de usuários</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta name="author" content="Samuel Barbosa">
         <link rel="stylesheet" href="css/styles.css">
     </head>
-    <body>
+    <body ng-controller="productController">
 
 <div class="container">
   <header>
@@ -106,27 +105,26 @@
     <div class="table-responsive">
       <table class="table table-hover">
         <tr><th>Código</th><th>Nome</th><th>E-mail</th><th>Login</th><th>Ações</th></tr>
-        <tr><td>001</td><td>Luciano</td><td>luciano@fatec.br</td><td>lucianofatec</td>
+        <!-- <tr><td>001</td><td>Luciano</td><td>luciano@fatec.br</td><td>lucianofatec</td>
           <td>
             <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a>
             <a href="#" title="Editar registro"><i class="fa fa-pencil text-warning"><span class="sr-only">Editar</span></i></a>
             <a href="#" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
           </td>
+        </tr> -->
+        <tr ng-repeat="product in listProducts"> <!--Para pegar de $scope.listProducts-->
+          <td>{{product.codigo}}</td>
+          <td>{{product.nome}}</td>
+          <td>{{product.email}}</td>
+          <td>{{product.login}}</td>
+          <td>
+            <!-- <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a> -->
+            <a href="#" ng-click="selectEdit(product.id)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
+            <a href="#" ng-click="del(product.id)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
+          </td>
         </tr>
-          <tr><td>002</td><td>Hanter</td><td>hanter@fatec.br</td><td>hanterfatec</td>
-            <td>
-              <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a>
-              <a href="#" title="Editar registro"><i class="fa fa-pencil text-warning"><span class="sr-only">Editar</span></i></a>
-              <a href="#" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
-            </td>
-          </tr>
-            <tr><td>003</td><td>Paulo</td><td>paulo@fatec.br</td><td>paulofatec</td>
-              <td>
-                <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a>
-                <a href="#" title="Editar registro"><i class="fa fa-pencil text-warning"><span class="sr-only">Editar</span></i></a>
-                <a href="#" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
-              </td>
-            </tr>
+
+
             </table>
           </div>
         </div><!--fim do toggle-->
@@ -150,13 +148,38 @@
 </div><!--  end container -->
 
 <!-- jQuery -->
-<script src="vendor/jquery/jquery.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Font Awesome -->
 <script src="https://use.fontawesome.com/b5d24ce853.js"></script>
-<script src="bower_components/angular/angular.min.js">
+<script src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript">
+  var myapp = angular.module('myapp', []);
+  myapp.controller('productController', function($scope){
 
+//Lista de usuários
+    $scope.listProducts = [
+      {codigo:'001', nome:"Luciano", email: 'luciano@fatec.br',     login:'lucianofatec'},
+      {codigo:'002', nome:'Hanter',  email: 'hanter@fatec.br',      login:'hanterfatec'},
+  		{codigo:'003', nome:'Paulo',	 email: 'paulo@fatec.br',		    login:'paulofatec'},
+  		{codigo:'004', nome:'Samuel',  email: 'samu101108@gmail.com', login: 'samu101108'}
+    ];
+//Deletar linha de tabela
+    $scope.del = function(codigo){
+      var result = confirm('Tem certeza?');
+      if(result===true){
+        var index = getSelectedIndex(codigo); <!--Essa linha pega a função definida abaixo-->
+        $scope.listProducts.splice(index, 1);
+      }
+    };
+    function getSelectedIndex(codigo){
+      for(var i=0; i<$scope.listProducts.length; i++)
+        if($scope.listProducts[i].codigo==codigo)
+          return i;
+      return -1;
+    }
+  });
 </script>
 </body>
 </html>

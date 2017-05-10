@@ -1,0 +1,22 @@
+{
+	"produto": [
+    {
+			"Código": "001",
+			"Produto": "Feijão mulatinho",
+			"Validade": "25-11-2017",
+			"Fabricante": "JJ Alimentos"
+		},
+    {
+			"Código": "002",
+			"Produto": "Arroz Integral",
+			"Validade": "12-02-2018",
+			"Fabricante": "FJ Alimentos"
+		},
+    {
+			"Código": "003",
+			"Produto": "Macarrão spaghetti",
+			"Validade": "09-06-2018",
+			"Fabricante": "MALA Alimentos"
+		}
+	]
+}

@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" ng-app="myapp">
     <head>
         <title>Cadastro de usuários</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta name="author" content="Samuel Barbosa">
         <link rel="stylesheet" href="css/styles.css">
     </head>
-    <body>
+    <body ng-controller="productController">
 
 <div class="container">
   <header>
@@ -48,7 +47,9 @@
             <label for="nome">Nome</label>
           </div>
           <div class="col-md-10">
-            <input id="nome" class="form-control" ng-model="usuario.nome" placeholder="Digite seu nome">
+            <input
+            ng-model="nome"
+            id="nome" class="form-control" ng-model="usuario.nome" placeholder="Digite seu nome">
           </div>
         </div>
 
@@ -57,7 +58,9 @@
             <label for="mail">E-mail</label>
           </div>
           <div class="col-md-10">
-            <input id="mail" class="form-control" type="text" name="email" value="" placeholder="Digite seu e-mail">
+            <input
+            ng-model="email"
+            id="mail" class="form-control"  ng-model="usuario.email" placeholder="Digite seu e-mail">
           </div>
         </div>
 
@@ -66,7 +69,9 @@
             <label for="login">Login</label>
           </div>
           <div class="col-md-10">
-            <input id="login" class="form-control" type="text" name="login" value="" placeholder="Digite seu login">
+            <input
+            ng-model="login"
+            id="login" class="form-control" type="text" name="login" value="" placeholder="Digite seu login">
           </div>
         </div>
 
@@ -75,7 +80,9 @@
             <label for="senha">Senha</label>
           </div>
           <div class="col-md-10">
-            <input id="senha" class="form-control" type="password" name="senha" value="" placeholder="Digite sua senha">
+            <input
+            ng-model="senha"
+            id="senha" class="form-control" type="password" name="senha" value="" placeholder="Digite sua senha">
           </div>
         </div>
 
@@ -84,52 +91,52 @@
             <p></p>
           </div>
           <div class="col-md-10">
-            <input  class="btn btn-default" type="submit" name="buttonCadastrar" value="Cadastrar">
+            <input
+            ng-click="edit()"
+            class="btn btn-default" type="submit"
+            name="buttonSalvar" value="Salvar">
+            <input
+            ng-click="add()"
+            class="btn btn-default" type="submit"
+            name="buttonCadastrar" value="Cadastrar">
           </div>
         </div>
       </div>
     </form>
 
-    <hr>
-<button class="btn btn-default" data-toggle="collapse" data-target="#registros">Mostrar registros</button>
-<div class="collapse" id="registros">
+<hr>
   <br>
+
     <form class="form-inline">
       <div class="form-group">
-        <label for="procurar">Procurar</label>
-        <input id="procurar" class="form-control" type="search" name="procurar" value="" placeholder="buscar por...">
+        <label for="procurar" class="sr-only">Procurar</label>
+        <div class="input-group margin-bottom-sm">
+          <input id="procurar" class="form-control" type="search" name="procurar" value="" placeholder="buscar por...">
+          <span class="input-group-addon"><i class="fa fa-search"></i></span>
+        </div>
       </div>
-      <button type="submit" class="btn btn-default">Buscar</button>
     </form>
-    <br>
+
+  <br>
 
     <div class="table-responsive">
       <table class="table table-hover">
-        <tr><th>Código</th><th>Nome</th><th>E-mail</th><th>Login</th><th>Ações</th></tr>
-        <tr><td>001</td><td>Luciano</td><td>luciano@fatec.br</td><td>lucianofatec</td>
+        <tr><th>Id</th><th>Nome</th><th>E-mail</th><th>Login</th><th>Ações</th></tr>
+
+        <tr ng-repeat="product in listProducts"> <!--Para pegar de $scope.listProducts-->
+          <td>{{product.id}}</td>
+          <td>{{product.nome}}</td>
+          <td>{{product.email}}</td>
+          <td>{{product.login}}</td>
           <td>
-            <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a>
-            <a href="#" title="Editar registro"><i class="fa fa-pencil text-warning"><span class="sr-only">Editar</span></i></a>
-            <a href="#" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
+            <a href="#" ng-click="selectEdit(product.id)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
+            <a href="#" ng-click="del(product.id)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
           </td>
         </tr>
-          <tr><td>002</td><td>Hanter</td><td>hanter@fatec.br</td><td>hanterfatec</td>
-            <td>
-              <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a>
-              <a href="#" title="Editar registro"><i class="fa fa-pencil text-warning"><span class="sr-only">Editar</span></i></a>
-              <a href="#" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
-            </td>
-          </tr>
-            <tr><td>003</td><td>Paulo</td><td>paulo@fatec.br</td><td>paulofatec</td>
-              <td>
-                <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a>
-                <a href="#" title="Editar registro"><i class="fa fa-pencil text-warning"><span class="sr-only">Editar</span></i></a>
-                <a href="#" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
-              </td>
-            </tr>
+
+
             </table>
           </div>
-        </div><!--fim do toggle-->
           <br>
           <br>
           <br>
@@ -150,13 +157,75 @@
 </div><!--  end container -->
 
 <!-- jQuery -->
-<script src="vendor/jquery/jquery.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Font Awesome -->
 <script src="https://use.fontawesome.com/b5d24ce853.js"></script>
-<script src="bower_components/angular/angular.min.js">
+<script src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript">
+  var myapp = angular.module('myapp', []);
+  myapp.controller('productController', function($scope){
 
+//Lista de usuários
+    $scope.listProducts = [
+      {id:'001', nome:"Luciano", email: 'luciano@fatec.br',     login:'lucianofatec'},
+      {id:'002', nome:'Hanter',  email: 'hanter@fatec.br',      login:'hanterfatec'},
+  		{id:'003', nome:'Paulo',	 email: 'paulo@fatec.br',		    login:'paulofatec'},
+  		{id:'004', nome:'Samuel',  email: 'samu101108@gmail.com', login: 'samu101108'}
+    ];
+
+//Adicionar registro à tabela
+    $scope.add = function(){
+      if($scope.nome && $scope.email && $scope.login){
+      $scope.listProducts.push(
+  {
+    id:$scope.id,
+    nome:$scope.nome,
+    email:$scope.email,
+    login:$scope.login
+  });
+}
+    $scope.id = '';
+    $scope.nome = '';
+    $scope.email = '';
+    $scope.login = '';
+    };
+
+//Editar/Salvar linha na tabela
+    $scope.edit = function(){
+      var index = getSelectedIndex($scope.id); <!--Essa linha pega a função definida abaixo-->
+      $scope.listProducts[index].nome = $scope.nome;
+      $scope.listProducts[index].email = $scope.email;
+      $scope.listProducts[index].login = $scope.login;
+    };
+
+//Editar linha de tabela
+    $scope.selectEdit = function(id){
+      var index = getSelectedIndex(id); <!--Essa linha pega a função definida abaixo-->
+      var product = $scope.listProducts[index];
+      $scope.id = product.id;
+      $scope.nome = product.nome;
+      $scope.email = product.email;
+      $scope.login = product.login;
+    };
+
+//Deletar linha de tabela
+    $scope.del = function(id){
+      var result = confirm('Tem certeza?');
+      if(result===true){
+        var index = getSelectedIndex(id); <!--Essa linha pega a função definida abaixo-->
+        $scope.listProducts.splice(index, 1);
+      }
+    };
+
+    function getSelectedIndex(id){
+      for(var i=0; i<$scope.listProducts.length; i++)
+        if($scope.listProducts[i].id==id)
+          return i;
+      return -1;
+    }
+  });
 </script>
 </body>
 </html>

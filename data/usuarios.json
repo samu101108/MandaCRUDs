@@ -1,0 +1,31 @@
+{
+	"usuario": [{
+			"Código": "001",
+			"Nome": "Luciano",
+			"Email": "luciano@fatec.br",
+			"Login": "lucianofatec",
+			"Senha": ""
+		},
+		{
+			"Código": "002",
+			"Nome": "Hanter",
+			"Email": "hanter@fatec.br",
+			"Login": "hanterfatec",
+			"Senha": ""
+		},
+		{
+			"Código": "003",
+			"Nome": "Paulo",
+			"Email": "paulo@fatec.br",
+			"Login": "paulofatec",
+			"Senha": ""
+		},
+		{
+			"Código": "004",
+			"Nome": "Samuel",
+			"Email": "samu101108@gmail.com",
+			"Login": "samu101108",
+			"Senha": ""
+		}
+	]
+}

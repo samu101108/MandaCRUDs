@@ -121,16 +121,16 @@
 
     <div class="table-responsive">
       <table class="table table-hover">
-        <tr><th>Código</th><th>Nome</th><th>E-mail</th><th>Login</th><th>Ações</th></tr>
+        <tr><th>Id</th><th>Nome</th><th>E-mail</th><th>Login</th><th>Ações</th></tr>
 
         <tr ng-repeat="product in listProducts"> <!--Para pegar de $scope.listProducts-->
-          <td>{{product.codigo}}</td>
+          <td>{{product.id}}</td>
           <td>{{product.nome}}</td>
           <td>{{product.email}}</td>
           <td>{{product.login}}</td>
           <td>
-            <a href="#" ng-click="selectEdit(product.codigo)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
-            <a href="#" ng-click="del(product.codigo)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
+            <a href="#" ng-click="selectEdit(product.id)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
+            <a href="#" ng-click="del(product.id)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
           </td>
         </tr>
 
@@ -169,50 +169,59 @@
 
 //Lista de usuários
     $scope.listProducts = [
-      {codigo:'001', nome:"Luciano", email: 'luciano@fatec.br',     login:'lucianofatec'},
-      {codigo:'002', nome:'Hanter',  email: 'hanter@fatec.br',      login:'hanterfatec'},
-  		{codigo:'003', nome:'Paulo',	 email: 'paulo@fatec.br',		    login:'paulofatec'},
-  		{codigo:'004', nome:'Samuel',  email: 'samu101108@gmail.com', login: 'samu101108'}
+      {id:'001', nome:"Luciano", email: 'luciano@fatec.br',     login:'lucianofatec'},
+      {id:'002', nome:'Hanter',  email: 'hanter@fatec.br',      login:'hanterfatec'},
+  		{id:'003', nome:'Paulo',	 email: 'paulo@fatec.br',		    login:'paulofatec'},
+  		{id:'004', nome:'Samuel',  email: 'samu101108@gmail.com', login: 'samu101108'}
     ];
+
 //Adicionar registro à tabela
     $scope.add = function(){
+      if($scope.nome && $scope.email && $scope.login){
       $scope.listProducts.push(
   {
-    codigo:$scope.codigo, nome:$scope.nome, email:$scope.email, login:$scope.login
+    id:$scope.id,
+    nome:$scope.nome,
+    email:$scope.email,
+    login:$scope.login
   });
-    $scope.codigo = '';
+}
+    $scope.id = '';
     $scope.nome = '';
     $scope.email = '';
     $scope.login = '';
     };
+
 //Editar/Salvar linha na tabela
     $scope.edit = function(){
-      var index = getSelectedIndex($scope.codigo); <!--Essa linha pega a função definida abaixo-->
+      var index = getSelectedIndex($scope.id); <!--Essa linha pega a função definida abaixo-->
       $scope.listProducts[index].nome = $scope.nome;
       $scope.listProducts[index].email = $scope.email;
       $scope.listProducts[index].login = $scope.login;
     };
+
 //Editar linha de tabela
-    $scope.selectEdit = function(codigo){
-      var index = getSelectedIndex(codigo); <!--Essa linha pega a função definida abaixo-->
+    $scope.selectEdit = function(id){
+      var index = getSelectedIndex(id); <!--Essa linha pega a função definida abaixo-->
       var product = $scope.listProducts[index];
-      $scope.codigo = product.codigo;
+      $scope.id = product.id;
       $scope.nome = product.nome;
       $scope.email = product.email;
       $scope.login = product.login;
     };
 
 //Deletar linha de tabela
-    $scope.del = function(codigo){
+    $scope.del = function(id){
       var result = confirm('Tem certeza?');
       if(result===true){
-        var index = getSelectedIndex(codigo); <!--Essa linha pega a função definida abaixo-->
+        var index = getSelectedIndex(id); <!--Essa linha pega a função definida abaixo-->
         $scope.listProducts.splice(index, 1);
       }
     };
-    function getSelectedIndex(codigo){
+
+    function getSelectedIndex(id){
       for(var i=0; i<$scope.listProducts.length; i++)
-        if($scope.listProducts[i].codigo==codigo)
+        if($scope.listProducts[i].id==id)
           return i;
       return -1;
     }

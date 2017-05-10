@@ -104,36 +104,31 @@
       </div>
     </form>
 
-    <hr>
-<button class="btn btn-default" data-toggle="collapse" data-target="#registros">Mostrar registros</button>
-<div class="collapse" id="registros">
+<hr>
   <br>
+
     <form class="form-inline">
       <div class="form-group">
-        <label for="procurar">Procurar</label>
-        <input id="procurar" class="form-control" type="search" name="procurar" value="" placeholder="buscar por...">
+        <label for="procurar" class="sr-only">Procurar</label>
+        <div class="input-group margin-bottom-sm">
+          <input id="procurar" class="form-control" type="search" name="procurar" value="" placeholder="buscar por...">
+          <span class="input-group-addon"><i class="fa fa-search"></i></span>
+        </div>
       </div>
-      <button type="submit" class="btn btn-default">Buscar</button>
     </form>
-    <br>
+
+  <br>
 
     <div class="table-responsive">
       <table class="table table-hover">
         <tr><th>Código</th><th>Nome</th><th>E-mail</th><th>Login</th><th>Ações</th></tr>
-        <!-- <tr><td>001</td><td>Luciano</td><td>luciano@fatec.br</td><td>lucianofatec</td>
-          <td>
-            <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a>
-            <a href="#" title="Editar registro"><i class="fa fa-pencil text-warning"><span class="sr-only">Editar</span></i></a>
-            <a href="#" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
-          </td>
-        </tr> -->
+
         <tr ng-repeat="product in listProducts"> <!--Para pegar de $scope.listProducts-->
           <td>{{product.codigo}}</td>
           <td>{{product.nome}}</td>
           <td>{{product.email}}</td>
           <td>{{product.login}}</td>
           <td>
-            <!-- <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a> -->
             <a href="#" ng-click="selectEdit(product.codigo)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
             <a href="#" ng-click="del(product.codigo)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
           </td>
@@ -142,7 +137,6 @@
 
             </table>
           </div>
-        </div><!--fim do toggle-->
           <br>
           <br>
           <br>

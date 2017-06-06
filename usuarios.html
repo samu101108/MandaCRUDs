@@ -10,7 +10,7 @@
 <meta name="author" content="Samuel Barbosa">
         <link rel="stylesheet" href="css/styles.css">
     </head>
-    <body ng-controller="productController">
+    <body ng-controller="usuarioController">
 
 <div class="container">
   <header>
@@ -111,7 +111,7 @@
       <div class="form-group">
         <label for="procurar" class="sr-only">Procurar</label>
         <div class="input-group margin-bottom-sm">
-          <input id="procurar" class="form-control" type="search" name="procurar" value="" placeholder="buscar por...">
+          <input id="procurar" class="form-control" type="search" name="procurar" ng-model= "buscar" value="" placeholder="buscar por...">
           <span class="input-group-addon"><i class="fa fa-search"></i></span>
         </div>
       </div>
@@ -123,11 +123,11 @@
       <table class="table table-hover">
         <tr><th>Id</th><th>Nome</th><th>E-mail</th><th>Login</th><th>Ações</th></tr>
 
-        <tr ng-repeat="product in listProducts"> <!--Para pegar de $scope.listProducts-->
-          <td>{{product.id}}</td>
-          <td>{{product.nome}}</td>
-          <td>{{product.email}}</td>
-          <td>{{product.login}}</td>
+        <tr ng-repeat="usuario in listProducts | filter:buscar"> <!--Para pegar de $scope.listProducts-->
+          <td>{{usuario.id}}</td>
+          <td>{{usuario.nome}}</td>
+          <td>{{usuario.email}}</td>
+          <td>{{usuario.login}}</td>
           <td>
             <a href="#" ng-click="selectEdit(product.id)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
             <a href="#" ng-click="del(product.id)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
@@ -163,6 +163,6 @@
 <!-- Font Awesome -->
 <script src="https://use.fontawesome.com/b5d24ce853.js"></script>
 <script src="bower_components/angular/angular.min.js"></script>
-<script src="js/crud.js" charset="utf-8"></script>
+<script src="js/crudUsuarios.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" ng-app="myapp">
     <head>
         <title>Cadastro de usuários</title>
 <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 <meta name="author" content="Samuel Barbosa">
         <link rel="stylesheet" href="css/styles.css">
     </head>
-    <body>
+    <body ng-controller= "produtoController">
 
 <div class="container">
   <header>
@@ -88,7 +88,7 @@
     <form class="form-inline">
       <div class="form-group">
         <label for="procurar">Procurar</label>
-        <input id="procurar" class="form-control" type="search" name="procurar" value="" placeholder="buscar por...">
+        <input id="procurar" class="form-control" type="search" name="procurar" ng-model= "buscar"value="" placeholder="buscar por...">
       </div>
       <button type="submit" class="btn btn-default">Buscar</button>
     </form>
@@ -96,31 +96,18 @@
 
     <div class="table-responsive">
       <table class="table table-hover">
-        <tr><th>Código</th><th>Produto</th><th>Validade</th><th>Fabricante</th><th>Ações</th></tr>
+        <tr><th>Id</th><th>Produto</th><th>Validade</th><th>Fabricante</th><th>Ações</th></tr>
+              <tr ng-repeat="produtos in listProdutos | filter:buscar"> <!--Para pegar de $scope.listProducts-->
+                <td>{{produtos.id}}</td>
+                <td>{{produtos.produto}}</td>
+                <td>{{produtos.validade}}</td>
+                <td>{{produtos.fabricante}}</td>
+                <td>
+                  <a href="#" ng-click="selectEdit(product.id)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
+                  <a href="#" ng-click="del(product.id)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
+                </td>
+              </tr>
 
-        <tr><td>001</td><td>Feijão mulatinho</td><td>25-11-2017</td><td>João José Alimentos LTDA</td>
-          <td>
-            <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a>
-            <a href="#" title="Editar registro"><i class="fa fa-pencil text-warning"><span class="sr-only">Editar</span></i></a>
-            <a href="#" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
-          </td>
-        </tr>
-
-        <tr><td>002</td><td>Arroz Integral</td><td>12-02-2018</td><td>João José Alimentos LTDA</td>
-          <td>
-            <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a>
-            <a href="#" title="Editar registro"><i class="fa fa-pencil text-warning"><span class="sr-only">Editar</span></i></a>
-            <a href="#" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
-          </td>
-        </tr>
-
-        <tr><td>003</td><td>Macarrão spaghetti</td><td>09-06-2018</td><td>João José Alimentos LTDA</td>
-          <td>
-            <a href="#" title="Ver registro"><i class="fa fa-search text-info"><span class="sr-only">Ver</span></i></a>
-            <a href="#" title="Editar registro"><i class="fa fa-pencil text-warning"><span class="sr-only">Editar</span></i></a>
-            <a href="#" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
-          </td>
-        </tr>
 
         </table>
       </div>
@@ -149,6 +136,8 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <!-- Font Awesome -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="js/crudProdutos.js"></script>
 <script src="https://use.fontawesome.com/b5d24ce853.js"></script>
 </body>
 </html>

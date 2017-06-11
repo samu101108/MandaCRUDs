@@ -1,13 +1,12 @@
   var myapp = angular.module('myapp', []);
-  myapp.controller('usuarioController', function($scope){
+  myapp.controller('produtoController', function($scope){
 
-//Lista de usuários
-    $scope.listProducts = [
-      {id:'001', nome:"Luciano", email: 'luciano@fatec.br',     login:'lucianofatec'},
-      {id:'002', nome:'Hanter',  email: 'hanter@fatec.br',      login:'hanterfatec'},
-  		{id:'003', nome:'Paulo',	 email: 'paulo@fatec.br',		    login:'paulofatec'},
-  		{id:'004', nome:'Samuel',  email: 'samu101108@gmail.com', login: 'samu101108'}
-    ];
+//Lista de produtos
+    $scope.listProdutos = [
+      {id: "001", produto: "Feijão mulatinho", validade: "25-11-2017", fabricante:"JJ Alimentos"},
+      {id: "002", produto: "Arroz Integral",  validade: "12-02-2018", fabricante:"FJ Alimentos"},
+      {id: "003", produto: "Macarrão spaghetti", validade: "09-06-2018", fabricante: "MALA Alimentos"}
+  	];
 
 //Adicionar registro à tabela
     $scope.add = function(){

@@ -1,13 +1,15 @@
   var myapp = angular.module('myapp', []);
-  myapp.controller('usuarioController', function($scope){
+  myapp.controller('fornecedorController', function($scope){
 
-//Lista de usuários
-    $scope.listProducts = [
-      {id:'001', nome:"Luciano", email: 'luciano@fatec.br',     login:'lucianofatec'},
-      {id:'002', nome:'Hanter',  email: 'hanter@fatec.br',      login:'hanterfatec'},
-  		{id:'003', nome:'Paulo',	 email: 'paulo@fatec.br',		    login:'paulofatec'},
-  		{id:'004', nome:'Samuel',  email: 'samu101108@gmail.com', login: 'samu101108'}
-    ];
+//Lista de produtos
+    $scope.listFornecedores = [
+        {	codigo: "001",fornecedores: "JJ Alimentos",endereco: "Rua Rio Chuí, 25",
+        razaoSocial: "João José Alimentos LTDA", cnpj: "99.999.999/9999-99",telefone: "(81)3333-4444"} ,
+        { codigo: "002", fornecedores: "FJ Alimentos",endereco: "Rua Rio Prado, 521" ,
+         razaoSocial: "Fernando Jaime Alimentos LTDA",cnpj: "99.999.999/9999-99",telefone: "(81)3333-4455"},
+        {codigo: "003", fornecedores: "MALA Alimentos",endereco:"Rua Rio Chuí, 25",
+        razaoSocial: "Maria Lúcia Andrade Alimentos LTDA", cnpj: "99.999.999/9999-99",telefone: "(81)3333-6698"}
+    	];
 
 //Adicionar registro à tabela
     $scope.add = function(){

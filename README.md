@@ -9,7 +9,7 @@ Neste projeto há um simples crud feito com Angularjs.
 
 
 
-#Após clonar ou baixar o projeto, execute os seguintes comandos:
+### Após clonar ou baixar o projeto, execute os seguintes comandos:
 
 - $ npm install
 - $ bower install

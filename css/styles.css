@@ -1,9 +1,4 @@
-/*
-.login-box{
-    width: 60%;
-    margin: auto;
-    top: 100px;
-}*/
+
 .navbar-inverse .navbar-toggle {
     border-color: #9d9d9d;
     color: #9d9d9d;
@@ -12,3 +7,28 @@
 .navbar-inverse .navbar-toggle:hover{
     color: #fff;
 }
+
+
+h2{
+    background-color: lightskyblue;
+}
+input{
+    margin-bottom: 10px;
+}
+
+
+  .hi-input{
+    height: 42px;
+  }
+  .bg{background-color: rgba(200,200,200, 0.2);
+    padding: 50px;
+    margin: 20px;
+    border: solid #999 1px;
+  }
+  img{
+    margin: 0 auto;
+  }
+  .max-w{
+    max-width: 530px;
+    margin: 0 auto;
+  }

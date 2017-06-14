@@ -1,0 +1,24 @@
+{
+  "name": "manda-cruds",
+  "homepage": "https://github.com/samu101108/MandaCRUDs",
+  "authors": [
+    "Barbosa S. A. <samu101108@gmail.com>",
+    "Santos L. N. <lucianosantosti@hotmail.com>"
+  ],
+  "description": "Projeto CRUDs",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.6.4",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "ngMask": "angular-mask#^3.1.1"
+  }
+}

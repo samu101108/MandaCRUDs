@@ -3,31 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://use.fontawesome.com/b1b37de301.js"></script>
-
   <meta name="author" content="Samuel Barbosa">
-  <style media="screen">
-    .hi-input{
-      height: 42px;
-    }
-  </style>
+
+  <!-- begin:css -->
+<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<!-- end:css -->
+
+
   <title>Entrar no sistema</title>
+  
 </head>
 <body>
-    <div class="container">
-      <div class="jumbotron">
-        <h1>Entrar no sistema</h1>
-      </div>
+
       <div class="container">
-        <div class="jumbotron">
-
-
-
-          <div class="row">
-            <div class="col-md-6 col-xs-10">
+          <div class="row max-w">
+            <div class="col-xs col-sm col-md col-lg bg">
+              <img class="img-responsive center" src="img/logo.png" alt="Imagem ilustrativa das funções de um crud">
+              <p class="text-center">Faça login</p>
               <form class="form-horizontal" action="usuarios.html" method="get">
                 <div class="form-group">
                   <label for="login" class="control-label hide">Login</label>
@@ -47,11 +41,18 @@
                   <input class="btn btn-default" type="submit" value="Entrar">
                 </div>
               </form>
+              <p><i>Admite-se quaisquer valores para login e senha (não existe autenticação no momento).</i></p>
               </div>
             </div>
-          </div>
         </div>
-    </div>
+
+<!-- begin:js -->
+<script src="lib/angular/angular.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/ngMask/dist/ngMask.min.js"></script>
+<script src="js/crud.js"></script>
+<!-- end:js -->
 
 </body>
 </html>

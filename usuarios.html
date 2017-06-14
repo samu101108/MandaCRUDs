@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR" ng-app="myapp">
     <head>
-        <title>Cadastro de usuários</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <meta name="author" content="Samuel Barbosa">
-        <link rel="stylesheet" href="css/styles.css">
+
+<!-- begin:css -->
+<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<!-- end:css -->
+
+<title>Cadastro de usuários</title>
+
     </head>
     <body ng-controller="usuarioController">
 
@@ -151,13 +155,13 @@
   </footer>
 </div><!--  end container -->
 
-<!-- jQuery -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- Font Awesome -->
-<script src="https://use.fontawesome.com/b5d24ce853.js"></script>
-<script src="bower_components/angular/angular.min.js"></script>
+<!-- begin:js -->
+<script src="lib/angular/angular.js"></script>
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="lib/ngMask/dist/ngMask.min.js"></script>
 <script src="js/crud.js"></script>
+<!-- end:js -->
+
 </body>
 </html>

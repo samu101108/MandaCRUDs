@@ -28,7 +28,7 @@
 
 //Editar/Salvar linha na tabela
     $scope.edit = function(){
-      var index = getSelectedIndex($scope.id); <!--Essa linha pega a função definida abaixo-->
+      var index = getSelectedIndex($scope.id); //Essa linha pega a função definida abaixo-->
       $scope.listProducts[index].nome = $scope.nome;
       $scope.listProducts[index].email = $scope.email;
       $scope.listProducts[index].login = $scope.login;
@@ -36,7 +36,7 @@
 
 //Editar linha de tabela
     $scope.selectEdit = function(id){
-      var index = getSelectedIndex(id); <!--Essa linha pega a função definida abaixo-->
+      var index = getSelectedIndex(id);   // Essa linha pega a função definida abaixo
       var product = $scope.listProducts[index];
       $scope.id = product.id;
       $scope.nome = product.nome;
@@ -48,7 +48,7 @@
     $scope.del = function(id){
       var result = confirm('Tem certeza?');
       if(result===true){
-        var index = getSelectedIndex(id); <!--Essa linha pega a função definida abaixo-->
+        var index = getSelectedIndex(id); //Essa linha pega a função definida abaixo-->
         $scope.listProducts.splice(index, 1);
       }
     };

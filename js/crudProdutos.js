@@ -1,4 +1,4 @@
-  var myapp = angular.module('myapp', []);
+  var myapp = angular.module('myapp', ['ngMask']);
   myapp.controller('produtoController', function($scope){
 
 //Lista de produtos
@@ -9,52 +9,50 @@
   	];
 
 //Adicionar registro à tabela
-    $scope.add = function(){
-      if($scope.nome && $scope.email && $scope.login){
-      $scope.listProducts.push(
+    $scope.addProduto = function(){
+      if($scope.produto && $scope.validade && $scope.fabricante ){
+      $scope.listProdutos.push(
   {
-    id:$scope.id,
-    nome:$scope.nome,
-    email:$scope.email,
-    login:$scope.login
+    produto:$scope.produto,
+    validade:$scope.validade,
+    fabricante:$scope.fabricante
   });
 }
-    $scope.id = '';
-    $scope.nome = '';
-    $scope.email = '';
-    $scope.login = '';
+    $scope.produto = '';
+    $scope.validade = '';
+    $scope.fabricante = '';
     };
 
 //Editar/Salvar linha na tabela
     $scope.edit = function(){
-      var index = getSelectedIndex($scope.id); <!--Essa linha pega a função definida abaixo-->
-      $scope.listProducts[index].nome = $scope.nome;
-      $scope.listProducts[index].email = $scope.email;
-      $scope.listProducts[index].login = $scope.login;
+      var index = getSelectedIndex($scope.id); //Essa linha pega a função definida abaixo
+      $scope.listProdutos[index].produto = $scope.produto;
+      $scope.listProdutos[index].validade = $scope.validade;
+      $scope.listProdutos[index].fabricante = $scope.fabricante;
     };
 
 //Editar linha de tabela
     $scope.selectEdit = function(id){
-      var index = getSelectedIndex(id); <!--Essa linha pega a função definida abaixo-->
-      var product = $scope.listProducts[index];
+      var index = getSelectedIndex(id);      // Essa linha pega a função definida abaixo
+      var product = $scope.listProdutos[index];
       $scope.id = product.id;
-      $scope.nome = product.nome;
-      $scope.email = product.email;
-      $scope.login = product.login;
+      $scope.produto = product.produto;
+      $scope.validade = product.validade;
+      $scope.fabricante = product.fabricante;
     };
 
 //Deletar linha de tabela
     $scope.del = function(id){
       var result = confirm('Tem certeza?');
       if(result===true){
-        var index = getSelectedIndex(id); <!--Essa linha pega a função definida abaixo-->
-        $scope.listProducts.splice(index, 1);
+        var index = getSelectedIndex(id); //Essa linha pega a função definida abaixo
+        $scope.listProdutos.splice(index, 1);
       }
     };
 
     function getSelectedIndex(id){
-      for(var i=0; i<$scope.listProducts.length; i++)
-        if($scope.listProducts[i].id==id)
+      for(var i=0; i<$scope.listProdutos.length; i++)
+        if($scope.listProdutos[i].id==id)
           return i;
       return -1;
     }

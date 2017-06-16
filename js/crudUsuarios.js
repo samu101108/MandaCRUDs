@@ -18,14 +18,12 @@
     nome:$scope.nome,
     email:$scope.email,
     login:$scope.login
-    senha:$scope.senha
   });
 }
     $scope.id = '';
     $scope.nome = '';
     $scope.email = '';
     $scope.login = '';
-    $scope.senha = '';
     };
 
 //Editar/Salvar linha na tabela

@@ -14,7 +14,7 @@
 <title>Cadastro de usuários</title>
 
     </head>
-    <body ng-controller= "produtoController">
+    <body ng-controller="produtoController">
 
 <div class="container">
   <header>
@@ -33,7 +33,7 @@
          <li><a href="fornecedores.html">Fornecedores</a></li>
        </ul>
        <ul class="nav navbar-nav navbar-right">
-         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+         <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
        </ul>
      </div>
    </div>
@@ -51,7 +51,9 @@
             <label for="produto">Produto</label>
           </div>
           <div class="col-md-10">
-            <input id="produto" class="form-control" type="text" name="produto" value="" placeholder="Digite nome do produto">
+            <input
+            ng-model="produto"
+            id="produto" class="form-control" type="text" name="produto" value="" placeholder="Digite nome do produto">
           </div>
         </div>
 
@@ -60,7 +62,9 @@
             <label for="validade">Validade</label>
           </div>
           <div class="col-md-10">
-            <input id="validade" class="form-control" type="text" name="validade" value="" placeholder="Digite a data de expiração">
+            <input
+            ng-model="validade"
+            id="validade" class="form-control" ng-model='ngMask' mask='39/19/9999'  value="" placeholder="Digite a data de expiração">
           </div>
         </div>
 
@@ -69,7 +73,9 @@
             <label for="fabricante">Fabricante</label>
           </div>
           <div class="col-md-10">
-            <input id="fabricante" class="form-control" type="text" name="fabricante" value="" placeholder="Digite o nome do fabricante">
+            <input
+            ng-model="fabricante"
+            id="fabricante" class="form-control" type="text" name="fabricante" value="" placeholder="Digite o nome do fabricante">
           </div>
         </div>
 
@@ -78,23 +84,30 @@
             <p></p>
           </div>
           <div class="col-md-10">
-            <input  class="btn btn-default" type="submit" name="buttonCadastrar" value="Cadastrar">
+            <input
+            ng-click="addProduto()"
+            class="btn btn-success" type="submit"
+            name="buttonCadastrar" value="Cadastrar">
+            <input
+            ng-click="edit()"
+            class="btn btn-warning" type="submit"
+            name="buttonEditar" value="Salvar Alterações">
           </div>
         </div>
       </div>
     </form>
 
     <hr>
-<button class="btn btn-default" data-toggle="collapse" data-target="#registros">Mostrar registros</button>
-<div class="collapse" id="registros">
   <br>
-    <form class="form-inline">
-      <div class="form-group">
-        <label for="procurar">Procurar</label>
-        <input id="procurar" class="form-control" type="search" name="procurar" ng-model= "buscar"value="" placeholder="buscar por...">
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="procurar" class="sr-only">Procurar</label>
+      <div class="input-group margin-bottom-sm">
+        <input id="procurar" class="form-control" type="search" name="procurar" ng-model= "buscar" value="" placeholder="buscar por...">
+        <span class="input-group-addon"><i class="fa fa-search"></i></span>
       </div>
-      <button type="submit" class="btn btn-default">Buscar</button>
-    </form>
+    </div>
+  </form>
     <br>
 
     <div class="table-responsive">
@@ -106,15 +119,15 @@
                 <td>{{produtos.validade}}</td>
                 <td>{{produtos.fabricante}}</td>
                 <td>
-                  <a href="#" ng-click="selectEdit(product.id)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
-                  <a href="#" ng-click="del(product.id)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
+                  <a href="#" ng-click="selectEdit(produtos.id)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
+                  <a href="#" ng-click="del(produtos.id)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
                 </td>
               </tr>
 
 
         </table>
       </div>
-        </div><!--fim do toggle-->
+
           <br>
           <br>
           <br>
@@ -139,7 +152,7 @@
 <script src="lib/jquery/dist/jquery.min.js"></script>
 <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="lib/ngMask/dist/ngMask.min.js"></script>
-<script src="js/crud.js"></script>
+<script src="js/crudProdutos.js"></script>
 <!-- end:js -->
 
 </body>

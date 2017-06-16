@@ -33,7 +33,7 @@
          <li><a href="fornecedores.html">Fornecedores</a></li>
        </ul>
        <ul class="nav navbar-nav navbar-right">
-         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+         <li><a href="index.html" ><span class="glyphicon glyphicon-log-in" title="voltar"></span> Logout</a></li>
        </ul>
      </div>
    </div>
@@ -53,7 +53,7 @@
           <div class="col-md-10">
             <input
             ng-model="nome"
-            id="nome" class="form-control" ng-model="usuario.nome" placeholder="Digite seu nome">
+            id="nome" class="form-control" placeholder="Digite seu nome">
           </div>
         </div>
 
@@ -64,7 +64,7 @@
           <div class="col-md-10">
             <input
             ng-model="email"
-            id="mail" class="form-control"  ng-model="usuario.email" placeholder="Digite seu e-mail">
+            id="mail" class="form-control" placeholder="Digite seu e-mail">
           </div>
         </div>
 
@@ -85,7 +85,7 @@
           <div class="col-md-10">
             <input
             ng-model="senha"
-            id="senha" class="form-control" type="password" name="senha" value="" placeholder="Digite sua senha">
+            id="senha" class="form-control" type="text" name="senha" placeholder="Digite sua senha">
           </div>
         </div>
 
@@ -96,8 +96,13 @@
           <div class="col-md-10">
             <input
             ng-click="add()"
-            class="btn btn-default" type="submit"
+            class="btn btn-success" type="submit"
             name="buttonCadastrar" value="Cadastrar">
+            <input
+            ng-click="edit()"
+            class="btn btn-warning" type="submit"
+            name="buttonEditar" value="Salvar Alterações">
+
           </div>
         </div>
       </div>
@@ -128,8 +133,8 @@
           <td>{{usuario.email}}</td>
           <td>{{usuario.login}}</td>
           <td>
-            <a href="#" ng-click="selectEdit(product.id)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
-            <a href="#" ng-click="del(product.id)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
+            <a href="#" ng-click="selectEdit(usuario.id)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
+            <a href="#" ng-click="del(usuario.id)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
           </td>
         </tr>
 
@@ -160,7 +165,7 @@
 <script src="lib/jquery/dist/jquery.min.js"></script>
 <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="lib/ngMask/dist/ngMask.min.js"></script>
-<script src="js/crud.js"></script>
+<script src="js/crudUsuarios.js"></script>
 <!-- end:js -->
 
 </body>

@@ -1,4 +1,4 @@
-  var myapp = angular.module('myapp', []);
+  var myapp = angular.module('myapp', ['ngMask']);
   myapp.controller('fornecedorController', function($scope){
 
 //Lista de produtos

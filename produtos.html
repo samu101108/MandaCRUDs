@@ -86,11 +86,11 @@
           <div class="col-md-10">
             <input
             ng-click="addProduto()"
-            class="btn btn-warning" type="submit"
+            class="btn btn-success" type="submit"
             name="buttonCadastrar" value="Cadastrar">
             <input
             ng-click="edit()"
-            class="btn btn-default" type="submit"
+            class="btn btn-warning" type="submit"
             name="buttonEditar" value="Salvar Alterações">
           </div>
         </div>
@@ -99,13 +99,15 @@
 
     <hr>
   <br>
-    <form class="form-inline">
-      <div class="form-group">
-        <label for="procurar">Procurar</label>
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="procurar" class="sr-only">Procurar</label>
+      <div class="input-group margin-bottom-sm">
         <input id="procurar" class="form-control" type="search" name="procurar" ng-model= "buscar" value="" placeholder="buscar por...">
+        <span class="input-group-addon"><i class="fa fa-search"></i></span>
       </div>
-      <button type="submit" class="btn btn-default">Buscar</button>
-    </form>
+    </div>
+  </form>
     <br>
 
     <div class="table-responsive">

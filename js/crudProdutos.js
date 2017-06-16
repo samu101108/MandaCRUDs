@@ -33,8 +33,7 @@
 
 //Editar linha de tabela
     $scope.selectEdit = function(id){
-      var index = getSelectedIndex(id);
-      // Essa linha pega a função definida abaixo
+      var index = getSelectedIndex(id);      // Essa linha pega a função definida abaixo
       var product = $scope.listProdutos[index];
       $scope.id = product.id;
       $scope.produto = product.produto;

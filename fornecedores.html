@@ -33,7 +33,7 @@
          <li class="active"><a href="fornecedores.html">Fornecedores</a></li>
        </ul>
        <ul class="nav navbar-nav navbar-right">
-         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+         <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
        </ul>
      </div>
    </div>
@@ -51,7 +51,9 @@
             <label for="fornecedor">Fornecedor</label>
           </div>
           <div class="col-md-10">
-            <input id="fornecedor" class="form-control" type="text" name="fornecedor" value="" placeholder="Digite nome do fornecedor">
+            <input
+            ng-model="fornecedor"
+            id="fornecedor" class="form-control" type="text" name="fornecedor" placeholder="Digite nome do fornecedor">
           </div>
         </div>
 
@@ -60,7 +62,8 @@
             <label for="endereco">Endereço</label>
           </div>
           <div class="col-md-10">
-            <input id="endereco" class="form-control" type="text" name="endereco" value="" placeholder="Digite endereço do fornecedor">
+            <input ng-model="endereco"
+             id="endereco" class="form-control" type="text" name="endereco" placeholder="Digite endereço do fornecedor">
           </div>
         </div>
 
@@ -69,7 +72,8 @@
             <label for="razao">Razão Social</label>
           </div>
           <div class="col-md-10">
-            <input id="razao" class="form-control" type="text" name="razao" value="" placeholder="Qual a Razão social?">
+            <input ng-model="razaoSocial"
+            id="razaoSocial" class="form-control" type="text" name="razao" placeholder="Qual a Razão social?">
           </div>
         </div>
 
@@ -78,7 +82,8 @@
             <label for="cnpj">CNPJ</label>
           </div>
           <div class="col-md-10">
-            <input id="cnpj" class="form-control" type="text" name="cnpj" value="" placeholder="Digite o número do CNPJ">
+            <input ng-model="cnpj"
+             id="cnpj" class="form-control" type="text" name="cnpj" placeholder="Digite o número do CNPJ">
           </div>
         </div>
 
@@ -87,7 +92,8 @@
             <label for="telefone">Telefone</label>
           </div>
           <div class="col-md-10">
-            <input id="telefone" class="form-control" type="text" name="telefone" value="" placeholder="Digite o número do telefone">
+            <input ng-model="telefone"
+             id="telefone" class="form-control" type="text" name="telefone" placeholder="Digite o número do telefone">
           </div>
         </div>
 
@@ -96,15 +102,20 @@
             <p></p>
           </div>
           <div class="col-md-10">
-            <input  class="btn btn-default" type="submit" name="buttonCadastrar" value="Cadastrar">
+            <input
+            ng-click="addFornecedor()"
+            class="btn btn-warning" type="submit"
+            name="buttonCadastrar" value="Cadastrar">
+            <input
+            ng-click="edit()"
+            class="btn btn-default" type="submit"
+            name="buttonEditar" value="Salvar Alterações">
           </div>
         </div>
       </div>
     </form>
 
     <hr>
-<button class="btn btn-default" data-toggle="collapse" data-target="#registros">Mostrar registros</button>
-<div class="collapse" id="registros">
   <br>
     <form class="form-inline">
       <div class="form-group">
@@ -116,24 +127,23 @@
     <br>
 
     <div class="table-responsive">
-      <table class="table table-hover">
+      <table class="table   table-hover">
         <tr><th>Código</th><th>Fornecedor</th><th>Endereço</th><th>Razão Social</th><th>CNPJ</th><th>Telefone</th><th>Opção</th></tr>
         <tr ng-repeat="fornecedor in listFornecedores | filter:buscar"> <!--Para pegar de $scope.listProducts-->
-        <td>{{fornecedor.codigo}}</td>
-        <td>{{fornecedor.fornecedores}}</td>
+        <td>{{fornecedor.id}}</td>
+        <td>{{fornecedor.fornecedor}}</td>
         <td>{{fornecedor.endereco}}</td>
         <td>{{fornecedor.razaoSocial}}</td>
         <td>{{fornecedor.cnpj}}</td>
         <td>{{fornecedor.telefone}}</td>
         <td>
-          <a href="#" ng-click="selectEdit(product.id)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
-          <a href="#" ng-click="del(product.id)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
+          <a href="#" ng-click="selectEdit(fornecedor.id)" title="Editar registro"><i class="fa fa-pencil text-warning">&nbsp;&nbsp;<span class="sr-only">Editar</span></i></a>
+          <a href="#" ng-click="del(fornecedor.id)" title="Apagar registro"><i class="fa fa-trash-o text-danger"><span class="sr-only">Apagar</span></i></a>
         </td>
       </tr>
 
         </table>
       </div>
-        </div><!--fim do toggle-->
           <br>
           <br>
           <br>
@@ -158,7 +168,7 @@
 <script src="lib/jquery/dist/jquery.min.js"></script>
 <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="lib/ngMask/dist/ngMask.min.js"></script>
-<script src="js/crud.js"></script>
+<script src="js/crudFornecedores.js"></script>
 <!-- end:js -->
 
 </body>

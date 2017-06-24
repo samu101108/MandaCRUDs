@@ -24,6 +24,7 @@
     $scope.nome = '';
     $scope.email = '';
     $scope.login = '';
+    $scope.senha = ''
     };
 
 //Editar/Salvar linha na tabela
